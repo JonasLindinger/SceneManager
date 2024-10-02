@@ -6,4 +6,4 @@ SceneManager.Instance.LoadScene(sceneToLoadIndex, activeSceneIndex);
 SceneManager.Instance.UnLoadScene(sceneToUnLoadIndex, activeSceneIndex);
 
 Code example:
- SceneManager.Instance.LoadScene((int)SceneIndexes.NetworkLayer, (int)SceneIndexes.NetworkLayer);
+SceneManager.Instance.LoadScene((int)SceneIndexes.NetworkLayer, (int)SceneIndexes.NetworkLayer);

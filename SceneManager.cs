@@ -28,7 +28,7 @@ namespace LindoNoxStudio.Scenes
             DontDestroyOnLoad(gameObject);
         }
         
-        public void LoadScene(int sceneIndex, int activeScene)
+        public void LoadScene(int sceneIndex, int activeScene, bool onlyAddToQueue = false)
         {
             SceneOperation operation = new SceneOperation
             {
@@ -39,10 +39,12 @@ namespace LindoNoxStudio.Scenes
             };
             
             _sceneQueue.Enqueue(operation);
+            
+            if (onlyAddToQueue) return;
             RunSceneOperations();
         }
         
-        public void UnLoadScene(int sceneIndex, int activeScene)
+        public void UnLoadScene(int sceneIndex, int activeScene, bool onlyAddToQueue = false)
         {
             SceneOperation operation = new SceneOperation
             {
@@ -53,10 +55,12 @@ namespace LindoNoxStudio.Scenes
             };
             
             _sceneQueue.Enqueue(operation);
+            
+            if (onlyAddToQueue) return;
             RunSceneOperations();
         }
 
-        private async Task RunSceneOperations()
+        public async Task RunSceneOperations()
         {
             // Checking if one of these chained methods is already running.
             // Checking if there is at least one operation to run.
